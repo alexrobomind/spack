@@ -271,7 +271,7 @@ class Trilinos(CMakePackage):
     depends_on('lapack')
     depends_on('boost', when='+boost')
     depends_on('boost', when='+dtk')
-    depends_on('matio')
+    depends_on('matio', when='+exodus')
     depends_on('glm')
     depends_on('metis@5:', when='+metis')
     depends_on('suite-sparse', when='+suite-sparse')
