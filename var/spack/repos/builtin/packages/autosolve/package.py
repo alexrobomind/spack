@@ -52,11 +52,5 @@ class Autosolve(CMakePackage):
     version('develop', git='https://github.com/bast/cmake-example.git')
 
     # FIXME: Add dependencies if required.
-    # depends_on('foo')
-    depends_on('boost@1.65.1~atomic~chrono~clanglibcpp~date_time~debug~exception~filesystem~graph~icu+iostreams~locale~log~math~mpi+multithreaded +program_options~python~random~regex+serialization+shared~signals~singlethreaded+system~taggedlayout~test+thread~timer~versionedlayout~wave')
-    depends_on('cmake@3.9.4')
-    depends_on('openmpi@2.1.2')
-    depends_on('hwloc -libxml2')
-    depends_on('dealii@8.5.1 -arpack -gsl -metis -oce -python -slepc +mpi +p4est +trilinos +petsc +netcdf +hdf5')
+    depends_on('dealii +mpi +p4est +trilinos +petsc +netcdf +hdf5')
     depends_on('cgal')
-    depends_on('trilinos -exodus +rol')
