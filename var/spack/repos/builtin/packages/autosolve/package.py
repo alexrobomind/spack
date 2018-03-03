@@ -59,3 +59,4 @@ class Autosolve(CMakePackage):
     depends_on('hwloc -libxml2')
     depends_on('dealii@8.5.1 -arpack -gsl -metis -oce -python -slepc +mpi +p4est +trilinos +petsc +netcdf +hdf5')
     depends_on('cgal')
+	depends_on('trilinos -exodus')
