@@ -56,4 +56,4 @@ class Autosolve(CMakePackage):
     # FIXME: Add dependencies if required.
     depends_on('dealii +mpi +p4est +trilinos +petsc +netcdf +hdf5')
     depends_on('cgal')
-    depends_on('trilinos -exodus', when='+trilinos')
+    depends_on('trilinos -exodus +rol', when='+trilinos')
