@@ -50,7 +50,10 @@ class Autosolve(CMakePackage):
     # FIXME: Add proper versions and checksums here.
     # version('1.2.3', '0123456789abcdef0123456789abcdef')
     version('develop', git='https://github.com/bast/cmake-example.git')
+	
+	variant('trilinos', default=False)
 
     # FIXME: Add dependencies if required.
     depends_on('dealii +mpi +p4est +trilinos +petsc +netcdf +hdf5')
     depends_on('cgal')
+    depends_on('trilinos', when='+trilinos')
