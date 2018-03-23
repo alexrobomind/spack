@@ -116,7 +116,7 @@ class Dealii(CMakePackage, CudaPackage):
     depends_on('lapack')
     depends_on('muparser')
     depends_on('suite-sparse')
-    depends_on('tbb')
+    depends_on('tbb', when='~bundled_tbb')
     depends_on('zlib')
 
     # optional dependencies
@@ -213,11 +213,12 @@ class Dealii(CMakePackage, CudaPackage):
             '-DLAPACK_LIBRARIES=%s' % lapack_blas.joined(';'),
             '-DMUPARSER_DIR=%s' % spec['muparser'].prefix,
             '-DUMFPACK_DIR=%s' % spec['suite-sparse'].prefix,
-        #    '-DTBB_DIR=%s' % spec['tbb'].prefix,
-            '-DZLIB_DIR=%s' % spec['zlib'].prefix,
-            '-DDEAL_II_ALLOW_BUNDLED=OFF'
+            '-DZLIB_DIR=%s' % spec['zlib'].prefix
         ])
-
+        		
+        if '~bundled_tbb' in spec:
+            options.extend(['-DTBB_DIR=%s' % spec['tbb'].prefix], '-DDEAL_II_ALLOW_BUNDLED=OFF')
+        
         if (spec.satisfies('^openblas+ilp64') or
             spec.satisfies('^intel-mkl+ilp64') or
             spec.satisfies('^intel-parallel-studio+mkl+ilp64')):
