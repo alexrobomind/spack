@@ -213,7 +213,7 @@ class Dealii(CMakePackage, CudaPackage):
             '-DLAPACK_LIBRARIES=%s' % lapack_blas.joined(';'),
             '-DMUPARSER_DIR=%s' % spec['muparser'].prefix,
             '-DUMFPACK_DIR=%s' % spec['suite-sparse'].prefix,
-            '-DTBB_DIR=%s' % spec['tbb'].prefix,
+        #    '-DTBB_DIR=%s' % spec['tbb'].prefix,
             '-DZLIB_DIR=%s' % spec['zlib'].prefix,
             '-DDEAL_II_ALLOW_BUNDLED=OFF'
         ])
