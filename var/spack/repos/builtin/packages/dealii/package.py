@@ -217,7 +217,7 @@ class Dealii(CMakePackage, CudaPackage):
         ])
         		
         if '~bundled_tbb' in spec:
-            options.extend(['-DTBB_DIR=%s' % spec['tbb'].prefix], '-DDEAL_II_ALLOW_BUNDLED=OFF')
+            options.extend(['-DTBB_DIR=%s' % spec['tbb'].prefix, '-DDEAL_II_ALLOW_BUNDLED=OFF'])
         
         if (spec.satisfies('^openblas+ilp64') or
             spec.satisfies('^intel-mkl+ilp64') or
