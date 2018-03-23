@@ -90,6 +90,8 @@ class Dealii(CMakePackage, CudaPackage):
     variant('build_type', default='DebugRelease',
             description='The build type to build',
             values=('Debug', 'Release', 'DebugRelease'))
+    variant('bundled_tbb', default = False,
+            description='Compile with built-in thread building blocks')
 
     # required dependencies, light version
     depends_on('blas')
@@ -401,6 +403,10 @@ class Dealii(CMakePackage, CudaPackage):
                     ' '.join(cxx_flags_release)),
                 '-DCMAKE_CXX_FLAGS:STRING=%s' % (
                     ' '.join(cxx_flags))
+            ])
+        if '+bundled_tbb' in spec:
+            options.extend([
+                '-DDEAL_II_FORCE_BUNDLED_THREADS=ON'
             ])
 
         return options
