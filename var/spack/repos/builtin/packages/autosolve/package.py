@@ -58,4 +58,4 @@ class Autosolve(CMakePackage):
     depends_on('cgal')
     depends_on('trilinos -exodus +rol', when='+trilinos')
     depends_on('petsc +mumps +trilinos')
-    depends_on('yaml-cpp@6.0:6.9999')
+    depends_on('yaml-cpp')
