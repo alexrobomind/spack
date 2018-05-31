@@ -50,7 +50,7 @@ class Autosolve(CMakePackage):
     # FIXME: Add proper versions and checksums here.
     # version('1.2.3', '0123456789abcdef0123456789abcdef')
     # version('develop', git='https://github.com/bast/cmake-example.git')
-    version('develop', git='https://src.ipp.kfa-juelich.de/knieps/autosolve.git')
+    version('develop', git='https://src.ipp.kfa-juelich.de/knieps/autosolve_eqnsolve.git')
     
     variant('trilinos', default=False)
 
@@ -60,3 +60,6 @@ class Autosolve(CMakePackage):
     depends_on('trilinos -exodus +rol', when='+trilinos')
     depends_on('petsc +mumps +trilinos')
     depends_on('yaml-cpp')
+
+    def setup_environment(self, spack_env, run_env):
+        run_env.set('AUTOSOLVE_DIR', self.prefix)
