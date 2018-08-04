@@ -31,6 +31,7 @@ class Dealii(CMakePackage, CudaPackage):
     version('8.3.0', sha256='4ddf72632eb501e1c814e299f32fc04fd680d6fda9daff58be4209e400e41779')
     version('8.2.1', sha256='d75674e45fe63cd9fa294460fe45228904d51a68f744dbb99cd7b60720f3b2a0')
     version('8.1.0', sha256='d666bbda2a17b41b80221d7029468246f2658051b8c00d9c5907cd6434c4df99')
+    version('autosolve_custom', git='https://github.com/alexrobomind/dealii.git', branch='autosolve_custom')
 
     variant('mpi',      default=True,  description='Compile with MPI')
     variant('assimp',   default=True,
