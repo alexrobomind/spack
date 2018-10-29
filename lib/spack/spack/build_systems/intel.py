@@ -675,7 +675,7 @@ class IntelPackage(PackageBase):
             omp_lib_path = gcc(
                 '--print-file-name', 'libgomp.%s' % dso_suffix, output=str)
             # Strip trailing whitespace
-            cxx_lib_path = cxx_lib_path.rstrip("\r\n");
+            omp_lib_path = omp_lib_path.rstrip("\r\n");
             omp_libs = LibraryList(omp_lib_path)
 
         if len(omp_libs) < 1:
