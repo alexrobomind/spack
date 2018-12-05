@@ -66,3 +66,15 @@ class Autosolve(CMakePackage):
 
     def setup_environment(self, spack_env, run_env):
         run_env.set('AUTOSOLVE_DIR', self.prefix)
+
+    def cmake_args(self):
+        spec = self.spec;
+        options = [];
+        
+        options.extend([
+            '-DCMAKE_C_COMPILER=%s' % spec['mpi'].mpicc,
+            '-DCMAKE_CXX_COMPILER=%s' % spec['mpi'].mpicxx,
+            '-DCMAKE_Fortran_COMPILER=%s' % spec['mpi'].mpifc,
+        ]);
+
+        return options;
